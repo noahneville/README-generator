@@ -1,4 +1,5 @@
-
+// an array object for licenses. Each object in the array contains one of the license choices, 
+// a link to the shields.io badge for that license and a link to the the text of the license itself
 const licenseData = [
   {
     name: 'Apache License 2.0',
@@ -67,7 +68,8 @@ const licenseData = [
   },
 ]
 
-// console.log(licenseData);
+// this function first loops through the licenseData array object to find which license the user has selected.
+// once found, it creates a licenseBadge variable with the badge and link, in markdown format. It returns that variable.
 const renderLicenseBadge = (license) => {
   if (license === ""){
     return license;
@@ -83,23 +85,10 @@ const renderLicenseBadge = (license) => {
   }
 };
 
-// TODO: Table of contents 
-// {
-//   title: '',
-//   description: '',
-//   installation: 'jfjf',
-//   usage: 'asdf',
-//   license: 'BSD 3-Clause "New" or "Revised" License',
-//   contributors: 'me',
-//   tests: 'no',
-//   username: 'no',
-//   email: 'yes'
-// }
 
-
-// TODO: Create a function to generate markdown for README
+// this function first calls the renderLicenseBadge function to create the license badge.
+// it then uses the data passed in to add user input data to the appropriate sections of the markdown template. 
 function generateMarkdown(data) {
-  console.log(data);
   let licenseSection = renderLicenseBadge(data.license);
   return `# ${data.title}
   
@@ -135,10 +124,7 @@ function generateMarkdown(data) {
   www.github.com/${data.username}.
 
   If you have any further questions, feel free to email me at ${data.email}.
-  
 `;
 }
-
-
 
 module.exports = generateMarkdown;
