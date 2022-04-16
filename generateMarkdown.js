@@ -71,18 +71,17 @@ const licenseData = [
 // this function first loops through the licenseData array object to find which license the user has selected.
 // once found, it creates a licenseBadge variable with the badge and link, in markdown format. It returns that variable.
 const renderLicenseBadge = (license) => {
-  if (license === ""){
-    return license;
-  } else {
-    for (i = 0; i < licenseData.length; i++) {
-      if (license === licenseData[i].name){
-        let licenseBadge = `[![License Badge](${licenseData[i].badge})](${licenseData[i].link})`;
-        return licenseBadge;
-      } else {
-        i++
-      };
+  //console.log(license);
+  for ( let i = 0; i < licenseData.length; i++) {
+    if (license === licenseData[i].name){
+      let licenseBadge = `[![License Badge](${licenseData[i].badge})](${licenseData[i].link})`;
+      //console.log(licenseBadge);
+      return licenseBadge;
+      
+    } else {
+      i++
     };
-  }
+  };
 };
 
 
@@ -90,6 +89,7 @@ const renderLicenseBadge = (license) => {
 // it then uses the data passed in to add user input data to the appropriate sections of the markdown template. 
 function generateMarkdown(data) {
   let licenseSection = renderLicenseBadge(data.license);
+  //console.log(licenseSection);
   return `# ${data.title}
   
   ${licenseSection}

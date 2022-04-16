@@ -79,7 +79,7 @@ const  writeToFile = (fileName, data) => {
 // apply that data to the markdown template in the generateMarkdown.js file. 
 function init() {
     inquirer.prompt(questions)
-    .then((answers) => writeToFile('README-TEST.md', generateMarkdown(answers)));   
+    .then((answers) => writeToFile('./output/README.md', generateMarkdown(answers)));   
 }
     
 // Function call to initialize app
